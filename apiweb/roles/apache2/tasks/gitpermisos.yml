@@ -1,0 +1,12 @@
+- name: Git Permisos 1
+  ansible.builtin.file:
+    path: /var/www/html/proyecto/Jardineria
+    state: directory
+    recurse: yes
+    group: www-data
+- name: Git permisos 2
+  ansible.builtin.file:
+    path: /var/www/html/proyecto/Jardineria
+    state: directory
+    recurse: yes
+    mode: g+rwx

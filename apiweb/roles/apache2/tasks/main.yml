@@ -1,0 +1,18 @@
+- include_tasks: instalar.yml
+  loop: "{{ listaInstalar }}"
+- include_tasks: instalar2.yml
+- name: Instalamos phpmyadmin
+  apt: name=phpmyadmin state=latest
+- include_tasks: configphpmyadmin.yml
+  loop: "{{ listaphpmyadmin }}"
+- include_tasks: instalarcomposer.yml
+- include_tasks: setupgit.yml
+  loop: "{{ listaProyectos }}"
+- name: Configuracion apache 1
+  script: ./files/uname.sh
+- include_tasks: configapache.yml
+  loop: "{{ listaapache }}"
+- include_tasks: gitpermisos.yml
+  loop: "{{ listaProyectos }}"
+- include_tasks: configsymfony.yml
+  loop: "{{ listasymfony }}"

@@ -1,0 +1,21 @@
+
+- name: Configuracion apache 2
+  command: touch /etc/apache2/sites-available/{{ item.proyecto }}.conf
+- name: Configuracion apache 3
+  shell: echo "<VirtualHost *:80>" > /etc/apache2/sites-available/{{ item.proyecto }}.conf
+- name: Configuracion apache 4
+  shell: echo "DocumentRoot /var/www/html/proyecto/Jardineria/apiJardineria/public" >> /etc/apache2/sites-available/{{ item.proyecto }}.conf
+- name: Configuracion apache 5
+  shell: echo "ServerName {{ item.server }}" >> /etc/apache2/sites-available/{{ item.proyecto }}.conf
+- name: Configuracion apache 6
+  shell: echo "<Directory /var/www/html/proyecto/{{ item.proyecto }}/api{{ item.proyecto }}/public>" >> /etc/apache2/sites-available/{{ item.proyecto }}.conf
+- name: Configuracion apache 7
+  shell: echo "    AllowOverride All" >> /etc/apache2/sites-available/{{ item.proyecto }}.conf
+- name: Configuracion apache 8
+  shell: echo "    Require all granted" >> /etc/apache2/sites-available/{{ item.proyecto }}.conf
+- name: Configuracion apache 9
+  shell: echo "</Directory>" >> /etc/apache2/sites-available/{{ item.proyecto }}.conf
+- name: Configuracion apache 9
+  shell: echo "</VirtualHost>" >> {{ item.proyecto }}.conf
+- name: Configuracion apache 10
+  command: a2ensite Jardineria.conf

@@ -1,0 +1,29 @@
+- name: Configurar phpmyadmin 1
+  ansible.builtin.lineinfile:
+    path: /etc/phpmyadmin/config-db.php
+    regexp: "^#$dbuser=''"
+    line: "$dbuser='{{ item.user }}'"
+    state: present
+- name: Configurar phpmyadmin 2
+  ansible.builtin.lineinfile:
+    path: /etc/phpmyadmin/config-db.php
+    regexp: "^$dbpass=''"
+    line: "$dbpass='{{ item.pass }}'"
+    state: present
+- name: Configurar phpmyadmin 3
+  ansible.builtin.lineinfile:
+    path: /etc/phpmyadmin/config-db.php
+    regexp: "^$dbname='phpmyadmin'"
+    line: "$dbname=''"
+    state: present
+- name: Configurar phpmyadmin 4
+  ansible.builtin.lineinfile:
+    path: /etc/phpmyadmin/config-db.php
+    regexp: "^$dbserver='localhost'"
+    line: "$dbserver='{{ item.ipbd }}'"
+    state: present
+- name: Configurar phpmyadmin 5
+  replace:
+    path: /usr/share/phpmyadmin/libraries/config.default.php
+    regexp: 'localhost'
+    replace: "{{ item.ipbd }}"

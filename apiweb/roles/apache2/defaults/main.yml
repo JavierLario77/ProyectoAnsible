@@ -1,0 +1,38 @@
+listaProyectos:
+  - Jardineria
+
+listaproyecto: { nombre: "Jardineria", repositorio: "https://JavierLario77:github77@github.com/JavierLario77/proyectophpmyadmin.git" }
+
+#listaproyecto:
+#  - nombre: Jardineria
+#    repositorio: https://JavierLario77:github77@github.com/JavierLario77/proyectophpmyadmin.git
+
+listaapache:
+  - proyecto: Jardineria
+    server: jardineria.javierlariodesarrollador.online
+
+listasymfony:
+  - ipbd: 192.168.1.3
+    nameserv: jardineria.javierlariodesarrollador.online
+    proyecto: Jardineria
+
+listaphpmyadmin:
+  - user: luis
+    pass: 1234
+    ipbd: 192.168.1.3
+
+listaInstalar:  
+  - php-cli
+  - php-fpm 
+  - php-json
+  - php-common
+  - php-mysql 
+  - php-zip 
+  - php-gd 
+  - php-mbstring 
+  - php-curl 
+  - php-xml 
+  - php-pear  
+  - php-bcmath 
+  - ca-certificates
+#  - apache2

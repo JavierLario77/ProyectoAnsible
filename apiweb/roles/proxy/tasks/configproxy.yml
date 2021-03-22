@@ -1,0 +1,20 @@
+- name: Configuracion proxy 1
+  command: touch /etc/apache2/sites-available/{{ item.archivo }}
+- name: Configuracion proxy 2
+  shell: echo "<VirtualHost *:80>" > /etc/apache2/sites-available/{{ item.archivo }}
+- name: Configuracion proxy 3
+  shell: echo "   ProxyPreserveHost On" >> /etc/apache2/sites-available/{{ item.archivo }}
+- name: Configuracion proxy 4
+  shell: echo "   ProxyPass / http://{{ item.ipserv }}/" >> /etc/apache2/sites-available/{{ item.archivo }}
+- name: Configuracion proxy 5
+  shell: echo "   ProxyPassReverse / http://{{ item.ipserv }}" >> /etc/apache2/sites-available/{{ item.archivo }}
+- name: Configuracion proxy 6
+  shell: echo "   ServerName {{ item.nameserv }}" >> /etc/apache2/sites-available/{{ item.archivo }}
+- name: Configuracion proxy 7
+  shell: echo "   ErrorLog ${APACHE_LOG_DIR}/error.log" >> /etc/apache2/sites-available/{{ item.archivo }}
+- name: Configuracion proxy 8
+  shell: echo "   CustomLog ${APACHE_LOG_DIR}/access.log combined" >> /etc/apache2/sites-available/{{ item.archivo }}
+- name: Configuracion proxy 8
+  shell: echo "</VirtualHost>" >> /etc/apache2/sites-available/{{ item.archivo }}
+- name: Configuracion proxy 9
+  command: a2ensite Jardineria2.conf

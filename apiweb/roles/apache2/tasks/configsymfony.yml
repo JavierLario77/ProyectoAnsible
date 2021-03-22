@@ -1,0 +1,30 @@
+- name: Configuración symfony 1
+  replace:
+    path: /var/www/html/proyecto/Jardineria/apiJardineria/.env
+    regexp: '127.0.0.1'
+    replace: '{{ item.ipbd }}'
+- name: Configuracion symfony 2
+  replace:
+    path: /var/www/html/proyecto/Jardineria/apiJardineria/.env
+    regexp: 'jardineria'
+    replace: '{{ item.proyecto }}'
+- name: Configurar symfony 3
+  replace:
+    path: /var/www/html/proyecto/Jardineria/apiJardineria/.env
+    regexp: '192.168.7.116'
+    replace: '85.208.20.51'
+- name: Confiuracion symfony 4
+  replace:
+    path: /var/www/html/proyecto/Jardineria/apiJardineria/.env
+    regexp: '192.168.1.53'
+    replace: '{{ item.nameserv }}'
+- name: Configuracion symfony 5
+  replace:
+    path: /var/www/html/proyecto/Jardineria/apiJardineria/config/packages/framework.yaml
+    regexp: '192.168.7.116'
+    replace: "'85.208.20.51'"
+- name: Configuracion symfony 6
+  replace:
+    path: /var/www/html/proyecto/Jardineria/apiJardineria/config/packages/framework.yaml
+    regexp: '192.168.1.53'
+    replace: "'{{ item.nameserv }}'"

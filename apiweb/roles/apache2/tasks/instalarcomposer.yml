@@ -1,0 +1,8 @@
+- name: Instalar composer 1
+  shell: curl -sS https://getcomposer.org/installer | php
+- name: Instalar composer 2
+  command: mv composer.phar /usr/local/bin/composer
+- name: Instalar composer 3
+  ansible.builtin.file:
+    path: /usr/local/bin/composer
+    mode: +x

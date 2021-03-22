@@ -1,0 +1,4 @@
+listaproxy:
+  - archivo: Jardineria2.conf
+    ipserv: 192.168.1.2
+    nameserv: jardineria.javierlariodesarrollador.online

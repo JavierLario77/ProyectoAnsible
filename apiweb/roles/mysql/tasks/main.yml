@@ -1,0 +1,9 @@
+- name: Instalar Mysql
+  apt: name=mysql-server state=latest
+- name: Copiamos
+  template: src=Jardineria.sql dest=/root/Jardineria.sql owner=luis mode=0600
+#- include_tasks: configmysql.yml
+- name: Configuramos mysql
+  script: ./files/uname.sh
+- name: restart mysql
+  service: name=mysql state=restarted

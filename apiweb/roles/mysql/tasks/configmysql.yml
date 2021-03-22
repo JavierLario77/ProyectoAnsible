@@ -1,0 +1,33 @@
+- name: Configuracion mysql 1
+  ansible.builtin.lineinfile:
+    path: /etc/mysql/mysql.conf.d/mysqld.cnf
+    regexp: "^# socket"
+    line: "socket"
+    state: present
+- name: Configuracion mysql 2
+  ansible.builtin.lineinfile:
+    path: /etc/mysql/mysql.conf.d/mysqld.cnf
+    regexp: "^# socket"
+    line: "socket"
+    state: present
+- name: Configuracion mysql 3
+  ansible.builtin.lineinfile:
+    path: /etc/mysql/mysql.conf.d/mysqld.cnf
+    regexp: "^# port"
+    line: "port"
+    state: present
+#- name: Configuracion mysql 4
+#  ansible.builtin.lineinfile:
+#    path: /etc/mysql/mysql.conf.d/mysqld.cnf
+#    regexp: "^# datadir"
+#    line: "datadir"
+#    state: present
+- name: Configuracion mysql 5
+  replace:
+    path: /etc/mysql/mysql.conf.d/mysqld.cnf
+    regexp: '= 127.0.0.1'
+    replace: '= 0.0.0.0'
+- name: Configuracion mysql 6
+  command: mkdir /var/run/mysql
+- name: Configuracion mysql 7
+  command: chown -R mysql:mysql /var/run/mysql
